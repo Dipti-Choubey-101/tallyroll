@@ -1,0 +1,238 @@
+{
+  "01-green-valley-sabzi-mandi.png": {
+    "vendor": "Green Valley Sabzi Mandi",
+    "date": "03/10/2026",
+    "total": 2660,
+    "tax": 0,
+    "currency": "INR",
+    "category": "produce",
+    "payment_method": "Cash",
+    "items": [
+      {
+        "name": "Tomato 20kg x 38",
+        "amount": 760
+      },
+      {
+        "name": "Onion 25kg x 30",
+        "amount": 750
+      },
+      {
+        "name": "Potato 25kg x 24",
+        "amount": 600
+      },
+      {
+        "name": "Green chilli 3kg x 60",
+        "amount": 180
+      },
+      {
+        "name": "Coriander 6 x 15",
+        "amount": 90
+      },
+      {
+        "name": "Lemon 4kg x 70",
+        "amount": 280
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "02-sharma-poultry-and-fish.png": {
+    "vendor": "Sharma Poultry & Fish",
+    "date": "04-10-2026",
+    "total": 10320,
+    "tax": 0,
+    "currency": "INR",
+    "category": "meat",
+    "payment_method": "UPI",
+    "items": [
+      {
+        "name": "Chicken 18kg x 210",
+        "amount": 3780
+      },
+      {
+        "name": "Egg trays 6 x 170",
+        "amount": 1020
+      },
+      {
+        "name": "Rohu fish 8kg x 240",
+        "amount": 1920
+      },
+      {
+        "name": "Mutton 5kg x 720",
+        "amount": 3600
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "03-kamdhenu-dairy.png": {
+    "vendor": "Kamdhenu Dairy Distributors",
+    "date": "05 Oct 2026",
+    "total": 10605.0,
+    "tax": 505.0,
+    "currency": "INR",
+    "category": "dairy",
+    "payment_method": "Bank transfer",
+    "items": [
+      {
+        "name": "Milk 40 L x 58",
+        "amount": 2320
+      },
+      {
+        "name": "Paneer 10 kg x 340",
+        "amount": 3400
+      },
+      {
+        "name": "Ghee 5 kg x 620",
+        "amount": 3100
+      },
+      {
+        "name": "Curd 20 kg x 64",
+        "amount": 1280
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "04-sri-balaji-kirana-and-spices.png": {
+    "vendor": "Sri Balaji Kirana & Spices",
+    "date": "06/10/26",
+    "total": 9759.75,
+    "tax": 464.75,
+    "currency": "INR",
+    "category": "grocery",
+    "payment_method": "Cash",
+    "items": [
+      {
+        "name": "Basmati rice 50kg",
+        "amount": 4750
+      },
+      {
+        "name": "Refined oil 15 L",
+        "amount": 2025
+      },
+      {
+        "name": "Turmeric 2kg",
+        "amount": 380
+      },
+      {
+        "name": "Red chilli 5kg",
+        "amount": 1150
+      },
+      {
+        "name": "Garam masala 1kg",
+        "amount": 640
+      },
+      {
+        "name": "Salt 25kg",
+        "amount": 350
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "05-sunrise-lpg-agency.png": {
+    "vendor": "Sunrise LPG Agency",
+    "date": "08/10/2026",
+    "total": 6726.0,
+    "tax": 1026.0,
+    "currency": "INR",
+    "category": "gas",
+    "payment_method": "Card",
+    "items": [
+      {
+        "name": "LPG cylinder 19kg x3",
+        "amount": 5550
+      },
+      {
+        "name": "Delivery charge",
+        "amount": 150
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "06-packright-supplies.png": {
+    "vendor": "Packright Supplies",
+    "date": "09-Oct-26",
+    "total": 5439.8,
+    "tax": 829.8,
+    "currency": "INR",
+    "category": "packaging",
+    "payment_method": "UPI",
+    "items": [
+      {
+        "name": "Container 500ml x 500",
+        "amount": 1750
+      },
+      {
+        "name": "Foil bag large x 300",
+        "amount": 1260
+      },
+      {
+        "name": "Napkin pack x 40",
+        "amount": 880
+      },
+      {
+        "name": "Carry bag x 600",
+        "amount": 720
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "07-fresh-fizz-beverages.png": {
+    "vendor": "Fresh Fizz Beverages",
+    "date": "10/10/2026",
+    "total": 6440.0,
+    "tax": 690.0,
+    "currency": "INR",
+    "category": "drinks",
+    "payment_method": "Credit",
+    "items": [
+      {
+        "name": "Soft drink crate x 10",
+        "amount": 3200
+      },
+      {
+        "name": "Water carton x 15",
+        "amount": 1650
+      },
+      {
+        "name": "Lime soda mix x 6",
+        "amount": 900
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  "08-annapurna-cleaning-mart.png": {
+    "vendor": "Annapurna Cleaning Mart",
+    "date": "12/10/2026",
+    "total": 3079.8,
+    "tax": 469.8,
+    "currency": "INR",
+    "category": "cleaning",
+    "payment_method": "Cash",
+    "items": [
+      {
+        "name": "Dishwash liquid 20L",
+        "amount": 1100
+      },
+      {
+        "name": "Floor cleaner 10L",
+        "amount": 650
+      },
+      {
+        "name": "Kitchen gloves x 12",
+        "amount": 540
+      },
+      {
+        "name": "Scrub pad x 40",
+        "amount": 320
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Photo is slightly blurry."
+  }
+}

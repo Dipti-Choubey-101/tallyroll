@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tallyroll</title>
+<meta name="description" content="Reads photos of restaurant bills on your own computer and sorts them into one tidy sheet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f2b22'/%3E%3Cpath d='M9 7h14v18l-2.3-2-2.4 2-2.3-2-2.3 2-2.4-2L9 25z' fill='%23f5b21b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="/" aria-label="Tallyroll home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--counter)"/><path d="M9 7h14v18l-2.3-2-2.4 2-2.3-2-2.3 2-2.4-2L9 25z" fill="var(--saffron)"/><path d="M12.5 12h7M12.5 15.5h7M12.5 19h4" stroke="var(--counter)" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="brand-name">Tallyroll</span>
+  </a>
+  <div class="top-right">
+    <div class="status" id="status" role="status" aria-live="polite"><span class="dot"></span><span id="statusText">Checking…</span></div>
+    <button class="icon-btn" id="openSettings" aria-label="Settings" title="Settings">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="banner" id="banner" hidden></div>
+
+<main>
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-copy">
+      <h1 id="h1"><span>Drop the bills in.</span> <span>Hand your accountant a clean sheet.</span></h1>
+      <p class="lede">Tallyroll reads photos of supplier bills and receipts, sorts each one into a kitchen category, and gives you a single spreadsheet. The reading is done by Gemma, an open model running on this computer, so your bills never touch the internet.</p>
+      <div class="actions">
+        <button class="btn primary" id="pick">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>
+          Choose bill photos
+        </button>
+        <button class="btn ghost" id="trySamples">Try the sample bills</button>
+        <input type="file" id="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+      </div>
+      <ul class="facts">
+        <li><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>Works with no internet connection</li>
+        <li><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>No per-bill fee, no account, no subscription</li>
+        <li><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>Phone photos, JPG, PNG or WEBP</li>
+      </ul>
+    </div>
+
+    <div class="press" id="drop" tabindex="0" role="button" aria-label="Drop bill photos here, or press Enter to choose files">
+      <div class="lcd" aria-live="polite"><span class="led" id="led"></span><span id="lcdText">ready, drop a bill</span><span class="lcd-time" id="lcdTime"></span></div>
+      <div class="slot"><div class="slot-glow"></div></div>
+      <div class="paper-wrap">
+        <div class="paper" id="paper">
+          <div class="p-idle" id="paperIdle">
+            <div class="p-title">Drop bills here</div>
+            <div class="p-sub">or click anywhere on this printer</div>
+            <div class="perf"></div>
+            <div class="p-sub small">Each bill prints out here<br>as soon as it has been read.</div>
+          </div>
+        </div>
+      </div>
+      <div class="queue" id="queue" aria-label="Bills being read"></div>
+    </div>
+  </section>
+
+  <section class="tally" aria-label="Totals">
+    <div class="tally-head">
+      <h2>The books</h2>
+      <label class="select-wrap"><span class="sr">Month</span>
+        <select id="month"></select>
+      </label>
+    </div>
+    <div class="figures" id="figures"></div>
+  </section>
+
+  <section class="books">
+    <div class="ledger-wrap">
+      <div class="ledger-head">
+        <div class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg><input id="search" type="search" placeholder="Search vendor or item" autocomplete="off"></div>
+        <div class="chips" id="filters"></div>
+      </div>
+      <div class="ledger" id="ledger" role="table" aria-label="Bills"></div>
+    </div>
+    <aside class="aside">
+      <div class="card" id="cats"></div>
+      <div class="card export">
+        <h3>For your accountant</h3>
+        <p id="exportNote">One row per bill, with date, vendor, category, total and tax. Opens in Excel.</p>
+        <a class="btn primary wide" id="exportBtn" href="/api/export.csv">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>
+          Download spreadsheet
+        </a>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Everything stays in the <code>data</code> folder next to this program.</span>
+  <span id="footModel"></span>
+</footer>
+
+<div class="veil" id="veil" aria-hidden="true"><div class="veil-card">Let go to feed the bills in</div></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Bill details"></aside>
+
+<dialog id="settings">
+  <form method="dialog" class="dlg" id="settingsForm">
+    <div class="dlg-head"><h2>Settings</h2><button class="icon-btn" value="cancel" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <label class="field"><span>Model that reads the bills</span>
+      <input id="sModel" spellcheck="false" autocomplete="off">
+      <small>Needs to be a Gemma model that can look at pictures. <code>gemma3:4b</code> is a small, quick start. <code>gemma4:e4b</code> is newer and reads messy bills better, but is a bigger download.</small></label>
+    <label class="field"><span>Your currency</span>
+      <input id="sCurrency" maxlength="3" spellcheck="false" autocomplete="off">
+      <small>Three letters, like INR, USD, EUR or GBP. Used when a bill does not show one.</small></label>
+    <label class="toggle"><input type="checkbox" id="sDayFirst"><span class="sw"></span><span>Dates on my bills are day first (03/10/2026 is 3 October)</span></label>
+    <label class="toggle"><input type="checkbox" id="sDemo"><span class="sw"></span><span>Demo mode: only the sample bills, no model needed</span></label>
+    <details><summary>Advanced</summary>
+      <label class="field"><span>Ollama address</span><input id="sUrl" spellcheck="false" autocomplete="off"><small>Leave this alone unless you know you changed it.</small></label>
+      <button type="button" class="btn danger" id="clearAll">Delete all bills and photos</button>
+    </details>
+    <div class="dlg-actions"><button class="btn ghost" value="cancel">Cancel</button><button class="btn primary" id="saveSettings" value="save">Save settings</button></div>
+  </form>
+</dialog>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

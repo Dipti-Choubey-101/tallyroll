@@ -1,0 +1,217 @@
+TALLYROLL - WINDOWS GUIDE (for complete beginners)
+===================================================
+
+What this is
+------------
+Tallyroll reads photos of restaurant bills (vegetable market, butcher, dairy,
+gas, electricity...), sorts each one into a category, and gives you one
+spreadsheet. The reading is done by Gemma, a free AI model that runs ON YOUR
+OWN COMPUTER. Your bills never go to the internet.
+
+You only need the internet ONCE, to download two free programs and the model.
+After that it works offline.
+
+What you need
+-------------
+ * A Windows 10 or Windows 11 computer
+ * 8 GB of memory (RAM) at least. 16 GB is better.
+ * About 10 GB of free disk space
+ * Internet for the first-time setup (about 3 GB of downloads)
+
+You do NOT need to know any coding. You will only double-click things.
+
+
+PART 1 - ONE-TIME SETUP (about 20 minutes, mostly waiting)
+===========================================================
+
+STEP 1. Unzip the project
+-------------------------
+ 1. Find the file  tallyroll.zip  (probably in your Downloads folder).
+ 2. Right-click it, then click "Extract All...", then click "Extract".
+ 3. A normal folder called  tallyroll  opens. Keep it somewhere easy, for
+    example move it to your Desktop.
+ IMPORTANT: do not run anything from inside the zip. Extract first.
+
+STEP 2. Install Python (a free helper program)
+----------------------------------------------
+ 1. Open your browser and go to   https://www.python.org/downloads/
+ 2. Click the big yellow "Download Python" button.
+ 3. Open the downloaded file to start the installer.
+ 4. On the FIRST screen, at the bottom, tick the box
+        [x] Add python.exe to PATH
+    This is the one step people miss. Then click "Install Now".
+ 5. When it says "Setup was successful", click Close.
+
+STEP 3. Install Ollama (this runs the AI on your computer)
+----------------------------------------------------------
+ 1. Go to   https://ollama.com/download   and click "Download for Windows".
+ 2. Run the downloaded  OllamaSetup.exe  and click Install.
+ 3. When it finishes, Ollama starts by itself. Look at the bottom-right of
+    your screen (the little arrow near the clock). You should see a llama icon.
+    That means it is running. You never need to open it again; it stays in
+    the background.
+
+STEP 4. Download the Gemma model (one time, about 3 GB)
+-------------------------------------------------------
+ 1. In the tallyroll folder, double-click   setup-model.bat
+ 2. If Windows shows a blue box "Windows protected your PC":
+       click "More info", then click "Run anyway".
+    (It shows this for any file that did not come from the Microsoft Store.
+     The file is plain text. You can right-click it and choose Edit to read it.)
+ 3. A black window opens. Type 1 and press Enter.
+        1 = gemma3:4b   small, quick, best for most laptops
+        2 = gemma4:e4b  newer, reads messy bills better, bigger download
+ 4. Wait until it says "Done". The download can take 10 to 30 minutes.
+    Leave the window open. If your internet drops, just run it again.
+ 5. Press any key to close the window.
+
+
+PART 2 - USING TALLYROLL (every time)
+=====================================
+
+STEP 5. Start it
+----------------
+ 1. Double-click   start.bat   in the tallyroll folder.
+ 2. A black window opens and your web browser opens Tallyroll
+    (address:  http://127.0.0.1:8765 ).
+ 3. KEEP THE BLACK WINDOW OPEN while you use Tallyroll. It is the engine.
+    To stop Tallyroll, just close the black window.
+ 4. The pill at the top right should say "Gemma ready, on this computer"
+    with a green dot. If it does not, see Troubleshooting below.
+
+STEP 6. Try the sample bills first
+----------------------------------
+ 1. Click "Try the sample bills". Eight made-up bills are read one by one.
+ 2. Watch the printer: each bill is scanned, then printed out as a receipt
+    with a stamp showing its category.
+ 3. NOTE: the first bill is the slowest, because the model has to wake up.
+    On a laptop WITHOUT a graphics card, expect roughly 20 seconds to 2 minutes
+    per bill. That is normal. A computer with a good graphics card is faster.
+ 4. Do not worry about mistakes. Click any bill to correct it.
+
+STEP 7. Use your real bills
+---------------------------
+ 1. Put photos of the bills on the computer (send them from your phone to
+    yourself by WhatsApp Web, email, or a USB cable).
+ 2. Drag the photos onto the printer, or click "Choose bill photos".
+ 3. Tips for good results:
+      - One bill per photo.
+      - Flat surface, good light, no shadow across the paper.
+      - Fill the photo with the bill. Do not leave a big empty table around it.
+      - Phone photos are fine. Screenshots are fine.
+      - PDFs are not supported yet: take a screenshot of the PDF instead.
+ 4. Bills marked "Check" in red have something missing or odd, for example the
+    date could not be read, or the items do not add up to the total.
+    Click the bill, look at the photo next to the numbers, fix it, press Save.
+
+STEP 8. Give the spreadsheet to your accountant
+-----------------------------------------------
+ 1. Choose the month at the top of "The books" section.
+ 2. Click "Download spreadsheet". You get a .csv file that opens in Excel.
+ 3. If a month has bills marked "Check", fix them first. The file also has a
+    column "Needs a check" so nothing is hidden.
+
+Where is my data?
+-----------------
+ In the folder  tallyroll\data  . Your bill photos and the list of bills are
+ there. Nothing is sent anywhere. To start fresh: Settings (gear icon) then
+ "Delete all bills and photos".
+
+
+DEMO MODE (for a backup, or for recording a video)
+==================================================
+Gear icon, then switch on "Demo mode". Tallyroll then recognises only the
+eight sample bills and needs no model. Every bill added this way is tagged
+"demo" so nobody is misled. TURN IT OFF before showing real work.
+
+
+TROUBLESHOOTING
+===============
+
+"Python is not installed yet" (black window)
+   Install Python (Step 2). Make sure you tick "Add python.exe to PATH".
+   If you already installed it without ticking, run the installer again,
+   choose "Modify", and tick the PATH option; or uninstall and reinstall.
+
+Windows says "Windows protected your PC"
+   Click "More info", then "Run anyway".
+
+Pill says "Ollama is not running"
+   Press the Windows key, type Ollama, press Enter. Wait 10 seconds. If it is
+   not installed, do Step 3.
+
+Pill says "Gemma is not installed yet"
+   Run setup-model.bat again (Step 4). Or open Settings and make sure the
+   model name matches the one you downloaded (gemma3:4b or gemma4:e4b).
+
+Reading is very slow, or the computer freezes
+   Close other big programs (browser with many tabs, games). Use gemma3:4b,
+   not the bigger model. Process fewer bills at once. Computers with 8 GB of
+   memory can be slow; that is expected.
+
+"The model answered, but not in a form Tallyroll could read"
+   Just add that bill again. If it keeps happening, the photo may be too blurry.
+
+Numbers look wrong
+   Small AI models can misread digits, especially on blurry or crumpled bills.
+   That is why Tallyroll shows the photo next to the numbers and marks doubtful
+   bills. Always glance at the total of important bills.
+
+The page says "Tallyroll could not start"
+   The black window was closed. Double-click start.bat again.
+
+"Address already in use" / port problem
+   Tallyroll tries ports 8765 to 8775 automatically. Read the address shown in
+   the black window and open that one.
+
+Excel shows strange symbols instead of the rupee sign
+   Open Excel first, then Data > From Text/CSV and choose "UTF-8".
+   (Normally it just works.)
+
+Nothing works at all
+   Restart the computer, open Ollama from the Start menu, double-click start.bat.
+
+
+RECORDING YOUR DEMO VIDEO (about 90 seconds)
+============================================
+ Windows has a free recorder: press Windows key + Alt + R to start and stop.
+ The video is saved in  Videos\Captures .
+ Suggested order:
+   0:00  Say the problem in one sentence: "Restaurants drown in paper bills at
+         tax time."
+   0:10  Show the page. Turn OFF Wi-Fi on camera. (Proves it is offline.)
+   0:20  Drop 3 or 4 real bills on the printer. Let the printing animation play.
+   0:50  Click one flagged bill, show the photo, fix a number, Save.
+   1:10  Click "Download spreadsheet" and open it in Excel.
+   1:25  One sentence on why it runs on your own computer.
+ Do not use demo mode in the video unless you say so out loud.
+
+
+SHOWING IT TO THE RESTAURANT OWNER
+==================================
+ This is worth bonus points, so do it properly and honestly:
+   1. Ask for 10 real bills from the last month (supplier bills, gas, power).
+   2. Run them with the owner watching. Note: how many it read right, how many
+      it flagged, how many it got wrong, and the time it took.
+   3. Ask: "Would this save you time?" "What would you want next?" and
+      "Would you pay for it? How much, per month?"
+   4. Write down their answers in their own words. Ask permission before you
+      mention their name or restaurant in your post.
+   5. Never invent a quote or a result. If they said "interesting but not
+      sure", write exactly that. Honest results are better than perfect ones.
+ Put the real numbers into POST-DRAFT.md where you see [SQUARE BRACKETS].
+
+
+PUTTING THE CODE ON GITHUB (needed for the Code section)
+========================================================
+ 1. Create a free account at https://github.com
+ 2. Click + (top right) > New repository. Name it  tallyroll , keep it Public,
+    click Create repository.
+ 3. Click "uploading an existing file". Open your tallyroll folder, select
+    everything EXCEPT the  data  folder (it holds your private bills!), drag it
+    into the browser, wait, then click "Commit changes".
+    Hidden folder note: the  .github  folder holds the automatic test; if it
+    does not upload by dragging, use Add file > Create new file and name it
+    .github/workflows/test.yml , then paste the contents from your copy.
+ 4. Paste your repository link into the "Code" section of your DEV post.
+ NEVER upload the  data  folder. It contains real bills.
